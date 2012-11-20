@@ -1,7 +1,8 @@
 ﻿// GoogleHelper
 // Author: patgdut
 // Create on: 2012-11-17
-// verson: 1.0.0.1
+// verson: 1.0.0.2
+// @NOTE 多次安装可能运行多个background.js进程
 
 (function () {
     var googleHelper = {

@@ -1,7 +1,7 @@
 ﻿// GoogleHelper
 // Author: patgdut
 // Create on: 2012-11-17
-// verson: 1.0.0.1
+// verson: 1.0.0.2
 
 // 页面初始化时向background.html发起请求,若为http连接,强制转换为https连接
 chrome.extension.sendRequest({param: "https"}, function(response) {});
