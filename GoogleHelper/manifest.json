@@ -2,7 +2,7 @@
   "manifest_version":2, 
   "name": "GoogleHelper",
   "description": "Google连接助手",
-  "version": "1.0.0.2",
+  "version": "1.0.0.3",
   "permissions": ["tabs","background","contextMenus"],
   "content_scripts": [ {
 	"js": ["js/jquery-1.8.3.min.js","js/script.js"],
