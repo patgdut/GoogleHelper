@@ -2,7 +2,7 @@
 // Author: patgdut
 // Create on: 2012-11-17
 // verson: 1.0.0.2
-// @NOTE 多次安装可能运行多个background.js进程
+// @NOTE 重新编译crx文件的时候请选择pem文件
 
 (function () {
     var googleHelper = {
