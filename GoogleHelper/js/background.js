@@ -1,7 +1,7 @@
 ﻿// GoogleHelper
 // Author: patgdut
 // Create on: 2012-11-17
-// verson: 1.0.0.2
+// verson: 1.0.0.3
 // @NOTE 重新编译crx文件的时候请选择pem文件
 
 (function () {
@@ -22,11 +22,15 @@
                     var match = "^(http:\/\/[a-z0-9\._-]+google.com)";
                     var reg = new RegExp(match);  
                     if (reg.test(url)) { 
-                        var httpsURL = url .replace("http","https"); 
+                        var httpsURL = url .replace("http://","https://"); 
                         chrome.tabs.update(sender.tab.id, {url: httpsURL});
                     }
                 } else if("targetURL" == request.param) {
-                    chrome.tabs.create({url: request.targetURL,index: sender.tab.index+1, active: !request.isOpenBackground});
+                    if (request.isOpenInNewTab) {
+                        chrome.tabs.create({url: request.targetURL,index: sender.tab.index+1, active: !request.isOpenBackground});
+                    } else {
+                        chrome.tabs.update(sender.tab.id, {url: request.targetURL});
+                    }
                 }
                 sendResponse({result: "success"});
             });
