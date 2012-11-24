@@ -1,7 +1,7 @@
 ﻿// GoogleHelper
 // Author: patgdut
 // Create on: 2012-11-17
-// verson: 1.0.0.2
+// verson: 1.0.0.3
 
 // 页面初始化时向background.html发起请求,若为http连接,强制转换为https连接
 chrome.extension.sendRequest({param: "https"}, function(response) {});
@@ -28,16 +28,18 @@ $(document).ready(function(){
         }
 
         // 是否在新的窗口打开
-        var target = $(this).attr('target'); 
+        var target = $(this).attr('target');
+        var isOpenInNewTab = true;
 
         if (target !== '_blank' && !ctrlKeyIsPressed) {
-            return true;
+           isOpenInNewTab = false;
         }
 
         chrome.extension.sendRequest({
             param:"targetURL",
             targetURL:decodeURL,
             isOpenBackground: ctrlKeyIsPressed,
+            isOpenInNewTab: isOpenInNewTab,
         }, function(response) {});
 
         return false;
